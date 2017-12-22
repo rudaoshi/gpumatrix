@@ -2,7 +2,7 @@
 
 
 
-// TestLeastSquareSVM.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌÐòµÄÈë¿Úµã¡£
+// TestLeastSquareSVM.cpp : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµã¡£
 //
 #include <tut/tut.hpp>
 #include <stdexcept>
@@ -166,7 +166,7 @@ namespace tut
 			Vector<double> d_B(h_B);
 
 			d_A.rowwise() += d_B;
-			h_A.rowwise() += h_B;
+			h_A.rowwise() += h_B.transpose();
 
 			ensure(check_diff(h_A, d_A));
 

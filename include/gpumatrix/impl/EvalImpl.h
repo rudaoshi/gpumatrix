@@ -1,5 +1,5 @@
 #ifndef EVAL_IMPL_H
-#define EVAL_INPL_H
+#define EVAL_IMPL_H
 
 
 #include <gpumatrix/impl/EvalInterface.h>

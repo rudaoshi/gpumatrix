@@ -315,7 +315,7 @@ TVMET_IMPLEMENT_MACRO(norm)
 
 /** \class Fcnl_isnan		UnaryFunctionals.h "gpumatrix/UnaryFunctionals.h" */
 /** \class Fcnl_isinf		UnaryFunctionals.h "gpumatrix/UnaryFunctionals.h" */
-/** \class Fcnl_finite		UnaryFunctionals.h "gpumatrix/UnaryFunctionals.h" */
+/** \class Fcnl_isfinite		UnaryFunctionals.h "gpumatrix/UnaryFunctionals.h" */
 #define TVMET_IMPLEMENT_MACRO(NAME, POD)				\
 template <class T>							\
 struct Fcnl_##NAME : public UnaryFunctional {				\
@@ -323,7 +323,7 @@ struct Fcnl_##NAME : public UnaryFunctional {				\
 									\
   static inline 							\
   POD apply_on(T rhs) {							\
-    return TVMET_GLOBAL_SCOPE(NAME)(rhs);				\
+    return TVMET_STD_SCOPE(NAME)(rhs);				\
   }									\
   									\
   static 								\
@@ -336,7 +336,7 @@ struct Fcnl_##NAME : public UnaryFunctional {				\
 
 TVMET_IMPLEMENT_MACRO(isnan, int)
 TVMET_IMPLEMENT_MACRO(isinf, int)
-TVMET_IMPLEMENT_MACRO(finite, int)
+TVMET_IMPLEMENT_MACRO(isfinite, int)
 
 #undef TVMET_IMPLEMENT_MACRO
 

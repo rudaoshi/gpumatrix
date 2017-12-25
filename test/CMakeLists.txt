@@ -1,6 +1,6 @@
 # CmakeLists.txt in Test dir
 # Make sure the compiler can find include files from our Hello library.
-INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/include /usr/local/include/eigen3)
+INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/include ${EIGEN3_INCLUDE_DIR})
 # Add binary called "helloWorld" that is built from the source file "test.cc".
 # The extension is automatically found.
 

@@ -33,7 +33,6 @@
 #include <gpumatrix/xpr/Array.h>
 #include <gpumatrix/Functional.h>
 #include <gpumatrix/xpr/UnOperator.h>
-#include <boost/static_assert.hpp>
 
 #include <gpumatrix/impl/Interface.h>
 
@@ -175,7 +174,7 @@ namespace gpumatrix {
 
 		explicit Map(value_type * data, std::size_t size):m_data(data),Rows(size),Cols(1)
 		{ 
-			BOOST_STATIC_ASSERT (D == 1) ;
+			static_assert (D == 1, "Dimension must equal to one") ;
 		}
 		/**
 		* Constructor with STL iterator interface. The data will be copied into the matrix

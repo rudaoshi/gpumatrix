@@ -4,7 +4,7 @@
 
 
 
-// TestLeastSquareSVM.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌÐòµÄÈë¿Úµã¡£
+// TestLeastSquareSVM.cpp : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµã¡£
 //
 #include <tut/tut.hpp>
 #include <stdexcept>
@@ -54,8 +54,8 @@ namespace tut
 
 
 
-			Eigen::MatrixXd h_A = Eigen::MatrixXd::Random(col,row);
-			Eigen::MatrixXd h_B = Eigen::MatrixXd::Random(col,row);
+			Eigen::MatrixXd h_A = Eigen::MatrixXd::Random(row,col);
+			Eigen::MatrixXd h_B = Eigen::MatrixXd::Random(row,col);
 
 			Matrix<double> d_A(h_A), d_B(h_B);
 
@@ -66,7 +66,7 @@ namespace tut
 			double error1 = abs(norm1-norm2);
 
 
-			ensure(error1 < 1e-5);
+			ensure("squared norm operation pass", error1 < 1e-5);
 
 		}
 	}
@@ -83,8 +83,8 @@ namespace tut
 
 
 
-			Eigen::MatrixXd h_A = Eigen::MatrixXd::Random(col,row);
-			Eigen::MatrixXd h_B = Eigen::MatrixXd::Random(col,row);
+			Eigen::MatrixXd h_A = Eigen::MatrixXd::Random(row,col);
+			Eigen::MatrixXd h_B = Eigen::MatrixXd::Random(row,col);
 
 			Matrix<double> d_A(h_A), d_B(h_B);
 
@@ -106,9 +106,9 @@ namespace tut
 
 			double error3 = abs(max1-max2);
 
-			ensure(error1 < 1e-5);
-			ensure(error2 < 1e-5);
-			ensure(error3 < 1e-5);
+			ensure("sum operation pass", error1 < 1e-5);
+			ensure("min operation pass", error2 < 1e-5);
+			ensure("max operation pass", error3 < 1e-5);
 
 		}
 	}
@@ -121,12 +121,9 @@ namespace tut
 		for (int i = 0;i<10;i++)
 		{
 			int row = rand()%1000+1;
-			int col = rand()%1000+1;
 
-
-
-			Eigen::VectorXd h_A = Eigen::VectorXd::Random(col,row);
-			Eigen::VectorXd h_B = Eigen::VectorXd::Random(col,row);
+			Eigen::VectorXd h_A = Eigen::VectorXd::Random(row);
+			Eigen::VectorXd h_B = Eigen::VectorXd::Random(row);
 
 			Vector<double> d_A(h_A), d_B(h_B);
 
@@ -136,8 +133,7 @@ namespace tut
 
 			double error1 = abs(dot1-dot2);
 
-
-			ensure(error1 < 1e-5);
+			ensure("dot operation pass", error1 < 1e-5);
 
 		}
 	}

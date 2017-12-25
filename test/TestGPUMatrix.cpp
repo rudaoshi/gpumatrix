@@ -1,4 +1,4 @@
-// TestGPUMatrix.cpp : 定义控制台应用程序的入口点。
+// TestGPUMatrix.cpp
 //
 
 #include <gpumatrix/Matrix.h>
@@ -7,7 +7,7 @@
 
 
 
-// TestLeastSquareSVM.cpp : 定义控制台应用程序的入口点。
+// TestLeastSquareSVM.cpp
 //
 #include <tut/tut.hpp>
 #include <stdexcept>
@@ -31,7 +31,12 @@ namespace tut
 
 		GPUMatrixData()
 		{
-			std::cout << cudaGetErrorString(cudaGetLastError()) << std::endl;
+			cudaError err = cudaGetLastError();
+			if ( cudaSuccess != err )
+			{
+				std::cout << cudaGetErrorString(err) << std::endl;
+			}
+
 			cublasInit();
 		}
 
